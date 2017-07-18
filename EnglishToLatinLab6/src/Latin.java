@@ -11,7 +11,7 @@ public class Latin {
         String input;
 
 
-    // User greeting and prompt.
+        // User greeting and prompt.
 
         System.out.println();
         System.out.println("eetingsGray! elcomeWay otay hetay igPay atinLay anslatorTray");
@@ -22,40 +22,48 @@ public class Latin {
         System.out.println();
         System.out.println("Please enter a word to translate from English to Pig Latin: ");
 
-    // User input with conversion of uppercase to lowercase consonants.
+        // User input with conversion of uppercase to lowercase consonants.
 
         userWord = scan.nextLine();
         userWord = userWord.toLowerCase();
         System.out.println(userWord);
 
-    //Declare "vowel" to initialize user input to character index.
 
-    for (int i = 0; i < userWord.length(); i++){
-        char vowel = userWord.charAt(i);
+        //Declare "vowel" to initialize user input to character index.
 
-    // If input begins with a vowel, add "way" to the end of the word.
+        char vowel = userWord.charAt(0);
 
-    if (vowel == 'a' || vowel == 'e' || vowel == 'i' || vowel == 'o' || vowel == 'u') {
-        String newWord = userWord + "way";
-        System.out.println("Your word translated into Pig Latin is: " + newWord);
-       }
+        // If input begins with a vowel, add "way" to the end of the word.
 
-        break;
+        if (vowel == 'a' || vowel == 'e' || vowel == 'i' || vowel == 'o' || vowel == 'u') {
+            String newWord = userWord + "way";
+            System.out.println("Your word translated into Pig Latin is: " + newWord);
+        }
 
-    // else {
-    //}
-    // for ()
+        //
+
+        else {
+            System.out.println("Consonant: " + userWord);
+        }
+        for (int i = 0; i < userWord.length(); i++) {
+
+            //Declare "vowel" to initialize user input to character index.
 
 
+            char consonant = userWord.charAt(i);
 
+        //Cut consonant(s) before the first vowel, move to the end of the word and add "ay".
 
+        if (consonant == 'a' || consonant == 'e' || consonant == 'o' || consonant == 'i' || consonant == 'u') {
+            String newPig = userWord.substring(i);
+            newPig += userWord.substring(0, i);
+            System.out.println("Your translated word is: " + newPig + "ay");
+            break;
+        }
+        }
 
 
     }
 
-    }
 
-
-    }
-
-
+}
